@@ -3,7 +3,7 @@
 This project will demonstrate an issues with angular2 in combination of ES6-promise and SystemJS.
 
 ### What is the problem
-If the application register an service which use ES6-promise (```new Promise((resolve,reject) => { ... });```), than the LifeCycle method ```ngOnInit``` is not be called.
+If the application register an service which use ES6-promise (```new Promise((resolve,reject) => { ... });```), than the LifeCycle method ```ngOnInit``` will not called.
 
 ### How you can reproduce it
 - Start the project (see Getting started) and open the the developer console in the browser (F12)
