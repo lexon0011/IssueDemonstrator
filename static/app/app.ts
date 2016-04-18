@@ -36,5 +36,5 @@ bootstrap(App, [
     ROUTER_BINDINGS,
     ROUTER_PROVIDERS,
     provide(APP_BASE_HREF, { useValue: '/static' }),
-    // provide(PermissionService, { useClass: PermissionService })
+    provide(PermissionService, { useClass: PermissionService })
 ]);
