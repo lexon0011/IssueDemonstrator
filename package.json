@@ -3,6 +3,11 @@
   "description": "A test application that demonstrates issues",
   "license": "UNLICENSED",
   "version": "1.0.0",
+  "readme": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lexon0011/IssueDemonstrator"
+  },
   "scripts": {
     "npm-install": "npm install",
     "pwd": "echo %cd%",
