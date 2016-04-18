@@ -12,7 +12,7 @@ import { PermissionService } from './permissionService';
     template: `
         <div>
             <h1>Welcome to the issue demonstrator</h1>
-            <button (click)="navigateToSite1()">Site 1</button>
+            <button (click)="showSite1()">Show Site 1</button>
             <!-- Routed views go here -->
             <router-outlet></router-outlet>
         </div>
@@ -23,11 +23,10 @@ import { PermissionService } from './permissionService';
 ])
 export class App {
     constructor(private router: Router) {
-        console.log("App started");
-        setTimeout(() => router.navigate(["Site1"]), 1000);
+        console.log("App started");        
     }
 
-    navigateToSite1() {
+    showSite1() {
         this.router.navigate(["Site1", {}]);
     }
 }
@@ -37,5 +36,5 @@ bootstrap(App, [
     ROUTER_BINDINGS,
     ROUTER_PROVIDERS,
     provide(APP_BASE_HREF, { useValue: '/static' }),
-    provide(PermissionService, { useClass: PermissionService })
+    // provide(PermissionService, { useClass: PermissionService })
 ]);
