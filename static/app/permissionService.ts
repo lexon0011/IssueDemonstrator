@@ -1,6 +1,5 @@
 import { Injectable } from 'angular2/core';
 import { Http, Headers } from 'angular2/http';
-import { Promise } from 'es6-promise';
 
 @Injectable()
 export class PermissionService {

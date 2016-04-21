@@ -1,6 +1,18 @@
 # IssueDemonstrator
 
-This project will demonstrate an issues with angular2 in combination of ES6-promise and SystemJS.
+This project will demonstrate an issues with angular2. If I found a solution to an issue, I will describe it.
+
+# Getting started
+
+Execute the following commands to start the webapplication
+
+```
+cd IssueDemonstrator
+npm install
+npm run start-dev
+```
+
+## Issue 1: OnInit will not called 
 
 ### What is the problem
 If the application register an service which use ES6-promise (```new Promise((resolve,reject) => { ... });```), than the LifeCycle method ```ngOnInit``` will not called.
@@ -21,16 +33,30 @@ If the application register an service which use ES6-promise (```new Promise((re
 - What is the correct way to use ES6-promise in an angular 2 project?
 - Is there a mistake in the SystemJS configuration? (systemConfig.js)?
 
+### Solution
+The problem is solved: See [here](https://github.com/angular/angular/issues/8109)
 
-# Getting started
 
-Execute the following commands to start the webapplication
+## Issue 2: HTTP Interceptor 
 
+I tried to implement an HTTP interceptor like [this example](https://www.illucit.com/blog/2016/03/angular2-http-authentication-interceptor/)
+
+The problem is, that the following instruction raise an error:
+ 
+``` 
+return observable.catch((err, source) => {
+        ...
+        }  
+    }); 
 ```
-cd IssueDemonstrator
-npm install
-npm run start-dev
-```
 
+### How you can reproduce it
+- Start the project (see Getting started) and open the the developer console in the browser (F12)
+- Choose the button "Create Request"
+- In the developer console you can see, that the following error occurred: observable.catch is not a function 
 
+### What is now the question
+- What I have to do, so that I get the catch available on the Observable object?
 
+### Solution
+At the moment there is no solution for this problem

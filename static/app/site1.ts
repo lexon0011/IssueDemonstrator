@@ -4,7 +4,7 @@ import { Component, OnInit, OnDestroy, ChangeDetectionStrategy } from "angular2/
     selector: "site1",
     template: `
         <div>
-            <p>Welcome to Site 1</p>
+            <p>Welcome to Site 2</p>
         </div>
     `
 })

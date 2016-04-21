@@ -5,6 +5,7 @@ import { Router, RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS, ROUTER_BINDIN
 
 import { Site1 } from './site1';
 import { PermissionService } from './permissionService';
+import { HttpInterceptor } from './httpInterceptor';
 
 @Component({
     selector: "issue-demonstrator",
@@ -12,7 +13,8 @@ import { PermissionService } from './permissionService';
     template: `
         <div>
             <h1>Welcome to the issue demonstrator</h1>
-            <button (click)="showSite1()">Show Site 1</button>
+            <button (click)="showSite1()">Show Site 1</button><br />
+            <button (click)="createRequest()">Create Request</button><br />
             <!-- Routed views go here -->
             <router-outlet></router-outlet>
         </div>
@@ -22,12 +24,19 @@ import { PermissionService } from './permissionService';
     { path: '/site1', name: 'Site1', component: Site1 }
 ])
 export class App {
-    constructor(private router: Router) {
-        console.log("App started");        
+    constructor(private router: Router, private http: Http) {
+        console.log("App started");
     }
 
     showSite1() {
         this.router.navigate(["Site1", {}]);
+    }
+
+    createRequest() {
+        this.http
+            .request("http://google.com", {
+                method: "get"
+            });
     }
 }
 
@@ -36,5 +45,9 @@ bootstrap(App, [
     ROUTER_BINDINGS,
     ROUTER_PROVIDERS,
     provide(APP_BASE_HREF, { useValue: '/static' }),
-    provide(PermissionService, { useClass: PermissionService })
+    provide(PermissionService, { useClass: PermissionService }),
+    provide(Http, {
+        useFactory: (xhrBackend: XHRBackend, requestOptions: RequestOptions) => new HttpInterceptor(xhrBackend, requestOptions),
+        deps: [XHRBackend, RequestOptions]
+    })
 ]);
