@@ -59,4 +59,10 @@ return observable.catch((err, source) => {
 - What I have to do, so that I get the catch available on the Observable object?
 
 ### Solution
-At the moment there is no solution for this problem
+The following imports are required:
+
+``` 
+import "rxjs/add/operator/catch";
+import "rxjs/add/observable/throw";
+import "rxjs/add/observable/empty";
+``` 
