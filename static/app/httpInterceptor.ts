@@ -1,5 +1,8 @@
 import { Http, Request, RequestOptionsArgs, Response, XHRBackend, RequestOptions, ConnectionBackend } from "angular2/http";
 import { Observable } from "rxjs/Observable";
+import "rxjs/add/operator/catch";
+import "rxjs/add/observable/throw";
+import "rxjs/add/observable/empty";
 
 export class HttpInterceptor extends Http {
 
@@ -29,20 +32,7 @@ export class HttpInterceptor extends Http {
 
     intercept(observable: Observable<Response>): Observable<Response> {
 
-        // Check response code: If 401 (Unauthorized) then redirect to Login Component
-        // observable.subscribe(
-        //     (data) => { },
-        //     (error) => {
-        //         if (error.status === 401) {
-        //             this.navigator.navigateToLogin({ redirectPath: "sections" });
-        //         }
-        //     }
-        // );
-        // return observable;
-
-        console.error("Log");
-        
-        return observable.catch((err, source) => {
+         return observable.catch((err, source) => {
          if (err.status  === 401) {
                 console.error("401 error");
                 //this.navigator.navigateToLogin({ redirectPath: "sections" });
