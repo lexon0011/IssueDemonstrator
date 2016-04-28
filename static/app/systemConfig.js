@@ -12,7 +12,6 @@ System.config({
     },
     map: {
         "rxjs": 'npm:rxjs',
-        "es6-promise": "npm:es6-promise/dist/es6-promise.js",
         "redux": "npm:redux/dist/redux.js",
         "reflect-metadata": "npm:reflect-metadata/Reflect.js",
         "crypto": "@empty" // ignore the crypto dependency

@@ -12,10 +12,11 @@ import { HttpInterceptor } from './httpInterceptor';
     directives: [ROUTER_DIRECTIVES],
     template: `
         <div>
-            <h1>Welcome to the issue demonstrator</h1>
-            <button (click)="showSite1()">Show Site 1</button><br />
+            <h3>Welcome to the issue demonstrator</h3>
+            <button (click)="showSite1()">Show Site 1</button>
             <button (click)="createRequest()">Create Request</button><br />
             <!-- Routed views go here -->
+            <hr />
             <router-outlet></router-outlet>
         </div>
     `
