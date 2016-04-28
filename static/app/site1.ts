@@ -16,7 +16,7 @@ export class Site1 implements OnInit, OnDestroy {
     ngOnInit() {
         console.log("Site1 - ngOnInit called");
     }
-    
+
     ngOnDestroy() {
         console.log("Site1 - ngOnDestroy called");
     }

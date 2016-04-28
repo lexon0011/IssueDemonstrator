@@ -35,7 +35,7 @@ export class HttpInterceptor extends Http {
          return observable.catch((err, source) => {
          if (err.status  === 401) {
                 console.error("401 error");
-                //this.navigator.navigateToLogin({ redirectPath: "sections" });
+                // this.navigator.navigateToLogin({ redirectPath: "sections" });
                 return Observable.empty();
             } else {
                 return Observable.throw(err);
