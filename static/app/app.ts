@@ -26,13 +26,14 @@ import { HttpInterceptor } from "./httpInterceptor";
 })
 @RouteConfig([
     { path: "/login", name: "Login", component: Login },
-    { path: "/site1", name: "Site1", component: Site1 }
+    { path: "/sites/site1", name: "Site1", component: Site1 }
 ])
 export class App {
     constructor(private router: Router, private http: Http) {
         console.log("App started");
+    }
 
-        // redirect to login
+    showSite1() {
         this.router.navigate(["Login", {}]);
     }
 
