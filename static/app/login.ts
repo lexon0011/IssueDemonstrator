@@ -22,7 +22,7 @@ export class Login {
         return new Promise((resolve: any, reject: any) => {
             setTimeout(function () {
                 resolve("SimulateSomeAsync");
-            }, 1000);
+            }, 5000);
         });
     }
 }
